@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    background-image: url("mansion-interior.jpg");
+    background-size: cover;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 10%;
+}
+
+#haunter-container {
+    display: flex;
+    justify-content: center;
+}
+
+#haunter {
+    width: 30%;
+    margin-bottom: -30px;
+}
+
+h1 {
+    color: purple;
+    text-shadow: 3px 3px white;
+    text-align: center;
+    border: 2px black solid;
+    background-color: lavender;
+    margin: 0 auto 10px auto;
+    padding: 10px;
+    box-shadow: 3px 3px purple;
+}
+
+button {
+    margin: auto;
+    padding: 5px; 
+}
