@@ -9,6 +9,7 @@ fetch(haunterData)
     })
 
 // ANIMATIONS
+
 function haunterHover() {
     $("#haunter").effect("shake", {times:3, direction:"up", distance:5}, 9000)
     haunterHover()
