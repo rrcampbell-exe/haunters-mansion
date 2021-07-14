@@ -10,11 +10,26 @@ fetch(haunterData)
     })
 
 // ANIMATIONS
-
 function haunterHover() {
     $("#haunter").effect("shake", {times:3, direction:"up", distance:5}, 9000)
     haunterHover()
 }
 
+function titleFade() {
+    $(document).ready(function() {
+        $(".title-display").fadeIn(3000)
+        .css("display", "flex")
+        $("#haunter").fadeIn(1500)
+        .css("display")
+    })
+}
+
+function startButtonShake() {
+    $("#start-btn").effect("shake", {times: 1, distance:3}, 1000)
+    setTimeout(startButtonShake, 3000)
+}
+
 // RUN ON PAGE LOAD
 setTimeout(haunterHover, 100)
+setTimeout(startButtonShake, 3000)
+titleFade();

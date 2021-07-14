@@ -11,7 +11,7 @@ body {
 }
 
 .title-display {
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
@@ -21,8 +21,9 @@ body {
 }
 
 #haunter {
-    width: 40%;
+    width: 45%;
     margin-bottom: -10%;
+    display: none;
 }
 
 h1 {
