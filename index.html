@@ -5,19 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haunter's Mansion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <main>
-        <div id="haunter-container">
-            <img id="haunter">
-        </div>
-        <h1>Haunter's Mansion</h1>
-        <button>Click here to begin.</button>
+        <div class="container">
+            <div class="row">
+              <div class="col-12" id="haunter-container">
+                <img id="haunter">
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-12 title-display">
+                    <h1>Haunter's Mansion</h1>
+                    <button id="start-btn">Click here to begin.</button>
+                </div>
+            </div>
+          </div>
     </main>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
