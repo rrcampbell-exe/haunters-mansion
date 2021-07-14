@@ -6,7 +6,6 @@ fetch(haunterData)
     .then(response => response.json())
     .then(data => {
         haunterImg.setAttribute("src", data.sprites.front_default)
-        console.log(data.sprites.front_default)
     })
 
 // ANIMATIONS
@@ -28,6 +27,13 @@ function startButtonShake() {
     $("#start-btn").effect("shake", {times: 1, distance:3}, 1000)
     setTimeout(startButtonShake, 3000)
 }
+
+// EVENT LISTENERS
+let startBtnEl = document.querySelector("#start-btn")
+startBtnEl.addEventListener("click", () => {
+    gastlyGame();
+    containerRemove();
+});
 
 // RUN ON PAGE LOAD
 setTimeout(haunterHover, 100)
