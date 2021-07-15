@@ -1,3 +1,5 @@
+/* UNIVERSAL STYLES */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,18 +17,7 @@ body {
     background-size: cover;
 }
 
-header {
-    background: rgba(230, 230, 250, 0.795);
-    color: purple;
-    text-shadow: 3px 3px white;
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header h2 {
-    margin: 10px 3%;
-}
+/* WELCOME STYLES */
 
 .title-display {
     display: none;
@@ -62,6 +53,49 @@ button {
     font-size: 1.5vw;
 }
 
+/* GASTLY MINI-GAME */
+
+header {
+    background: rgba(230, 230, 250, 0.795);
+    color: purple;
+    text-shadow: 3px 3px white;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2 {
+    margin: 10px 3%;
+}
+
+
+
 .gastly {
     display: inline-block;
+}
+
+/* HAUNTER MINI-GAME ONE */
+
+.haunter-grid-container {
+    display: none;
+    justify-content: center;
+}
+
+#sortable { 
+    list-style-type: none; 
+    margin-top: 50%;
+    padding: 0; 
+    width: 450px; 
+}
+
+#sortable li { 
+    margin: 3px 3px 0 0; 
+    padding: 1px; 
+    float: left; 
+    width: 100px; 
+    height: 90px; 
+    font-size: 4em; 
+    text-align: center; 
+    color: purple;
+    background-color: lavender;
 }

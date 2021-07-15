@@ -10,8 +10,8 @@ var animateObj = {
 }
 
 // remove container
-function containerRemove() {
-    var containerEl = document.querySelector(".container")
+function titleContainerRemove() {
+    var containerEl = document.querySelector(".title-container")
     containerEl.remove();
 }
 
@@ -99,3 +99,18 @@ function gastlyScoreFinal() {
     $("#gastly-scoreboard").css("display", "none")
     alert("Your score was " + gastlyObj.score + "!")
 }
+
+// HAUNTER MINI-GAME ONE
+$(function() {
+    $("#sortable").sortable();
+    $("#sortable").disableSelection();
+  } );
+
+function haunterGame() {
+    $(".haunter-grid-container").css("display", "flex")
+
+    // get 12 randomly selected pokemon images
+
+    // arrange them in list order on page
+
+}  
