@@ -106,11 +106,25 @@ $(function() {
     $("#sortable").disableSelection();
   } );
 
+function assignPokeImages() {
+    for (let i = 0; i < 12; i++) {
+        let randomPoke = Math.floor(Math.random() * 152)
+        let pokeApi = `https://pokeapi.co/api/v2/pokemon/${randomPoke}/`
+        fetch(pokeApi)
+            .then(res => res.json())
+            .then(data => {
+                let pokeImgChoice = data.sprites.front_default
+                let imgLocation = document.querySelectorAll(".poke-grid-image")
+                imgLocation.forEach(node => node.src = pokeImgChoice)
+            })
+    }  
+}
+
+
 function haunterGame() {
     $(".haunter-grid-container").css("display", "flex")
-
-    // get 12 randomly selected pokemon images
-
-    // arrange them in list order on page
+    
+// get 12 randomly selected pokemon images, arrange them in order
+    assignPokeImages();
 
 }  
