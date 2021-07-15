@@ -31,7 +31,36 @@ function containerRemove() {
 
 // INDIVIDUAL GAMES
 
-// gastly mini-game
+// GASTLY MINI-GAME
+
+let mainContentEl = document.querySelector(".main")
+let gastlyScore = document.querySelector("#gastly-score")
+
+// display header
+function displayGastlyScoreboard () {
+    $("#gastly-scoreboard").css("display", "flex")
+}
+
+// gastly timer
+timer = 30;
+function gastlyTimer() {
+    document.getElementById("timer").innerHTML = "Timer: " + timer;
+    timer--;
+    if (timer < 0) {
+        mainContentEl.remove();
+        gastlyScoreFinal();
+    }
+    else {
+        setTimeout(gastlyTimer, 1000);
+    }
+}
+
+// gastly scorekeeping
+var gastlyObj = {
+    score: 0
+}
+
+// gastly game function
 function gastlyGame() {
 
     // source code: https://stackoverflow.com/questions/55668801/how-to-make-an-image-appear-on-a-random-position-onclick
@@ -44,10 +73,12 @@ function gastlyGame() {
         var img = document.createElement("img");
         img.className = "gastly"
         img.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png";
-        img.width = 200;
-        img.height = 200;
+        img.style.height = "22vh";
+        img.style.width = img.style.height;
         img.addEventListener("click", () => {
-            console.log("Got 'em!")
+            gastlyObj.score = gastlyObj.score + 1
+            gastlyScore.textContent = gastlyObj.score
+            img.remove();
         });
         
         // set the position
@@ -55,7 +86,6 @@ function gastlyGame() {
         img.style.top = (document.body.clientHeight - 200) * Math.random() + 'px';
         img.style.left = (document.body.clientWidth - 200) * Math.random() + 'px';
 
-        let mainContentEl = document.querySelector(".main")
         mainContentEl.append(img);
         $(".gastly")
         .effect("shake", {times: Math.ceil(Math.random() * 3), distance: (Math.ceil(Math.random) * 1000) + 5}, 1000)
@@ -63,4 +93,9 @@ function gastlyGame() {
 
     setTimeout(gastlyGame, ((Math.random() * 1000) + 200));
 
+}
+
+function gastlyScoreFinal() {
+    $("#gastly-scoreboard").css("display", "none")
+    alert("Your score was " + gastlyObj.score + "!")
 }

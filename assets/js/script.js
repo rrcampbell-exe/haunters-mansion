@@ -34,6 +34,8 @@ let startBtnEl = document.querySelector("#start-btn")
 startBtnEl.addEventListener("click", () => {
     gastlyGame();
     containerRemove();
+    displayGastlyScoreboard();
+    gastlyTimer();
 });
 
 // RUN ON PAGE LOAD
