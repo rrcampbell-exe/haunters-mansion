@@ -101,6 +101,9 @@ function gastlyScoreFinal() {
 }
 
 // HAUNTER MINI-GAME ONE
+
+var gameImgArray = []
+
 $(function() {
     $("#sortable").sortable();
     $("#sortable").disableSelection();
@@ -114,11 +117,17 @@ function assignPokeImages() {
             .then(res => res.json())
             .then(data => {
                 let pokeImgChoice = data.sprites.front_default
-                let imgLocation = document.querySelectorAll(".poke-grid-image")
-                imgLocation.forEach(node => node.src = pokeImgChoice)
+                gameImgArray.push(pokeImgChoice)
+                function assignImg() {
+                    document.getElementById(parseInt(i)).src = gameImgArray[i]
+                }
+
+                setTimeout(assignImg, 1000);
             })
     }  
 }
+
+console.log(gameImgArray);
 
 
 function haunterGame() {
