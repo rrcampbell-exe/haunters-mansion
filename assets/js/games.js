@@ -103,6 +103,7 @@ function gastlyScoreFinal() {
 // HAUNTER MINI-GAME ONE
 
 var gameImgArray = []
+var reorderImgArray = []
 
 $(function() {
     $("#sortable").sortable();
@@ -111,23 +112,51 @@ $(function() {
 
 function assignPokeImages() {
     for (let i = 0; i < 12; i++) {
-        let randomPoke = Math.floor(Math.random() * 152)
+        let randomPoke = Math.ceil(Math.random() * 151)
         let pokeApi = `https://pokeapi.co/api/v2/pokemon/${randomPoke}/`
         fetch(pokeApi)
             .then(res => res.json())
             .then(data => {
                 let pokeImgChoice = data.sprites.front_default
                 gameImgArray.push(pokeImgChoice)
+                reorderImgArray.push(pokeImgChoice)
                 function assignImg() {
                     document.getElementById(parseInt(i)).src = gameImgArray[i]
                 }
-
-                setTimeout(assignImg, 1000);
+                
+                shufflePokeImages(reorderImgArray)
             })
-    }  
+        }  
+        console.log(gameImgArray);
+}
+
+function shufflePokeImages(array) {
+    var currentIndex = array.length, randomIndex;
+
+    // While there remain elements to shuffle
+    while (0 !== currentIndex) {
+
+        // Pick a remaining image
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current image
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+
+    }
+
+    displayShuffleImg(array); // change this so displayShuffleImg runs not immediately, but on an eventListener (a click of some kind). This will help you test the actual shuffling function.
+    return array
+}
+
+function displayShuffleImg() {
+    for (let i = 0; i < 12; i++) {
+        document.getElementById(parseInt(i)).src = reorderImgArray[i]
+    }
 }
 
 console.log(gameImgArray);
+console.log(reorderImgArray);
 
 
 function haunterGame() {

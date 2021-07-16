@@ -99,3 +99,8 @@ header h2 {
     color: purple;
     background-color: lavender;
 }
+
+.poke-grid-image {
+    display: flex;
+    margin: auto;
+}
