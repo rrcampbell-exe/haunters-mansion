@@ -108,6 +108,9 @@ var reorderImgArray = []
 $(function() {
     $("#sortable").sortable();
     $("#sortable").disableSelection();
+
+    // for saving the sorted images after click and drag: https://stackoverflow.com/questions/5320194/get-order-of-list-items-in-a-jquery-sortable-list-after-resort
+
   } );
 
 function assignPokeImages() {
@@ -157,6 +160,14 @@ function displayShuffleImg() {
 
 console.log(gameImgArray);
 console.log(reorderImgArray);
+
+function compareImgArrays () {
+    if (gameImgArray == reorderImgArray) {
+        console.log("User wins!")
+    } else {
+        console.log("User fails!")
+    }
+}
 
 
 function haunterGame() {
