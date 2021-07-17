@@ -28,7 +28,7 @@ header h2 {
     margin: 10px 3%;
 }
 
-.title-display {
+.title-display, .gastly-instructions {
     display: none;
     flex-direction: column;
 }
@@ -60,6 +60,27 @@ button {
     margin: auto;
     padding: 5px; 
     font-size: 1.5vw;
+    background-color:#fff;
+}
+
+/* GASTLY GAME STYLES */
+
+.gastly-instructions-container {
+    position: absolute;
+    top: 24vh;
+    left: 3.5vw;
+    right: 3.5vw;
+    /* margin-bottom: 0; */
+    display: none;
+}
+
+.gastly-instruction-text {
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 1.5vw;
+    border: 2px black solid;
+    background-color: #fff;
+    line-height: 1.7;
 }
 
 .gastly {

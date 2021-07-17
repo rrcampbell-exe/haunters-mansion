@@ -9,11 +9,22 @@ var animateObj = {
     slide: "slide"
 }
 
-// remove container
-function containerRemove() {
-    var containerEl = document.querySelector(".container")
-    containerEl.remove();
+// remove title container
+function titleContainerRemove() {
+    $(".title-container").fadeOut(1500)
 }
+
+// display gastly instructions container
+function gastlyInstructionsDisplay() {
+    $(".gastly-instructions, .gastly-instructions-container").fadeIn(1500)
+    $(".gastly-instructions, .gastly-instructions-container").css("display", "flex")
+}
+
+// remove gastly instructions
+function gastlyInstructionsRemove() {
+    $(".gastly-instructions, .gastly-instructions.container").fadeOut(1500)
+}
+
 
 // select random animation
 
@@ -38,6 +49,7 @@ let gastlyScore = document.querySelector("#gastly-score")
 
 // display header
 function displayGastlyScoreboard () {
+    $("#gastly-scoreboard").fadeIn(1500)
     $("#gastly-scoreboard").css("display", "flex")
 }
 

@@ -32,11 +32,20 @@ function startButtonShake() {
 // EVENT LISTENERS
 let startBtnEl = document.querySelector("#start-btn")
 startBtnEl.addEventListener("click", () => {
-    gastlyGame();
-    containerRemove();
-    displayGastlyScoreboard();
-    gastlyTimer();
+    // gastlyGame();
+    titleContainerRemove();
+    setTimeout(gastlyInstructionsDisplay, 1600);
+    // displayGastlyScoreboard();
+    // gastlyTimer();
 });
+
+let gastlyBtnEl = document.querySelector("#gastly-start-btn")
+gastlyBtnEl.addEventListener("click", () => {
+    gastlyInstructionsRemove();
+    setTimeout(gastlyGame, 3000);
+    setTimeout(displayGastlyScoreboard, 1600);
+    setTimeout(gastlyTimer, 3000);
+})
 
 // RUN ON PAGE LOAD
 setTimeout(haunterHover, 100)
