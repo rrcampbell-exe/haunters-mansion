@@ -28,7 +28,7 @@ header h2 {
     margin: 10px 3%;
 }
 
-.title-display, .gastly-instructions {
+.title-display, .gastly-instructions, .gastly-score-report {
     display: none;
     flex-direction: column;
 }
@@ -65,7 +65,7 @@ button {
 
 /* GASTLY GAME STYLES */
 
-.gastly-instructions-container {
+.gastly-instructions-container, .gastly-score-container {
     position: absolute;
     top: 24vh;
     left: 3.5vw;
@@ -74,7 +74,7 @@ button {
     display: none;
 }
 
-.gastly-instruction-text {
+.gastly-instruction-text, .gastly-score-report-text-success, .gastly-score-report-text-fail {
     margin-bottom: 10px;
     padding: 5px;
     font-size: 1.5vw;
@@ -86,3 +86,14 @@ button {
 .gastly {
     display: inline-block;
 }
+
+/* END GAME STYLES */
+
+.text-entry-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* .text-entry {
+    width: 15%;
+} */

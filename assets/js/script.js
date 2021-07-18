@@ -39,7 +39,7 @@ startBtnEl.addEventListener("click", () => {
     // gastlyTimer();
 });
 
-let gastlyBtnEl = document.querySelector("#gastly-start-btn")
+let gastlyBtnEl = document.querySelector(".gastly-start-btn")
 gastlyBtnEl.addEventListener("click", () => {
     gastlyInstructionsRemove();
     setTimeout(gastlyGame, 3000);

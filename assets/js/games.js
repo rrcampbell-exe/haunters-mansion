@@ -44,7 +44,7 @@ function gastlyInstructionsRemove() {
 
 // GASTLY MINI-GAME
 
-let mainContentEl = document.querySelector(".main")
+let catchSpaceEl = document.querySelector(".gastly-catch-space")
 let gastlyScore = document.querySelector("#gastly-score")
 
 // display header
@@ -54,13 +54,14 @@ function displayGastlyScoreboard () {
 }
 
 // gastly timer
-timer = 30;
+timer = 5;
 function gastlyTimer() {
     document.getElementById("timer").innerHTML = "Timer: " + timer;
     timer--;
     if (timer < 0) {
-        mainContentEl.remove();
+        catchSpaceEl.remove();
         gastlyScoreFinal();
+        return
     }
     else {
         setTimeout(gastlyTimer, 1000);
@@ -98,7 +99,7 @@ function gastlyGame() {
         img.style.top = (document.body.clientHeight - 200) * Math.random() + 'px';
         img.style.left = (document.body.clientWidth - 200) * Math.random() + 'px';
 
-        mainContentEl.append(img);
+        catchSpaceEl.append(img);
         $(".gastly")
         .effect("shake", {times: Math.ceil(Math.random() * 3), distance: (Math.ceil(Math.random) * 1000) + 5}, 1000)
     }
@@ -108,6 +109,15 @@ function gastlyGame() {
 }
 
 function gastlyScoreFinal() {
-    $("#gastly-scoreboard").css("display", "none")
-    alert("Your score was " + gastlyObj.score + "!")
+    $("#gastly-scoreboard").fadeOut(1500)
+    $(".gastly-score-report, .gastly-score-container").fadeIn(1500);
+    $(".gastly-score-report, .gastly-score-container").css("display", "flex");
+    $(".gastly-score-final").text(gastlyObj.score);
+
+    if (gastlyObj.score >= 1) {
+        $(".gastly-score-report-text-fail, .gastly-start-btn").css("display", "none");
+    } else {
+        $(".gastly-score-report-text-success").css("display", "none")
+    }
+
 }

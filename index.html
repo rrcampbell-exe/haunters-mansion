@@ -34,14 +34,34 @@
     </div>
     <div class="container gastly-instructions-container">
       <div class="row">
-        <!-- <div class="col-2"></div> -->
         <div class="col-12 gastly-instructions">
           <h1>Catch 'em if you can!</h1>
           <div class="gastly-instruction-text">
             <p>Catch as many Gastly as you can by clicking on them as they appear.</p>
             <p>But act fast! Gastly never appear for long, and you'll only have 30 seconds to catch enough of them to escape.</p>
           </div>
-          <button id="gastly-start-btn">Start catching!</button>
+          <button class="gastly-start-btn">Start catching!</button>
+        </div>
+      </div>
+    </div>
+    <div class="gastly-catch-space"></div>
+    <div class="container gastly-score-container">
+      <div class="row">
+        <div class="col-12 gastly-score-report">
+          <h1>Game Over!</h1>
+          <div class="gastly-score-report-text-success">
+            <p>Congratulations! You managed to catch <span class="gastly-score-final"></span> Gastly!</p>
+            <p>You have successfully escaped Haunter's Mansion. Enter your name below to save your score.</p>
+          </div>
+          <div class="text-entry-container">
+            <input type="text" id="name" name="name" class="text-entry" placeholder="Name" required minlength="3" maxlength="10" size="10"/>
+          </div>
+          <div class="gastly-score-report-text-fail">
+            <p>Oh no! You only caught <span class="gastly-score-final"></span> Gastly.</p>
+            <p>Darkness descends. Two eyes, white, appear in the darkness before you.</p>
+            <p>You suddenly find yourself getting sleepy, very sleepy...</p>
+          </div>
+          <button class="gastly-start-btn">Play again!</button>
         </div>
       </div>
     </div>
