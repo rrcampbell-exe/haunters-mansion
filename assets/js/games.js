@@ -59,7 +59,7 @@ function gastlyTimer() {
     document.getElementById("timer").innerHTML = "Timer: " + timer;
     timer--;
     if (timer < 0) {
-        catchSpaceEl.remove();
+        catchSpaceEl.remove(); // NEED TO CHANGE THIS TO DISPLAY NONE, THEN, IN ENDGAME FUNCTIONS, TURN TO DISPLAY FLEX
         gastlyScoreFinal();
         return
     }
@@ -118,6 +118,18 @@ function gastlyScoreFinal() {
         $(".gastly-score-report-text-fail, .gastly-start-btn").css("display", "none");
     } else {
         $(".gastly-score-report-text-success").css("display", "none")
+        $(".text-entry-container").css("display", "none")
+        let gastlyBtnEl = document.querySelector(".gastly-restart-btn")
+        gastlyBtnEl.addEventListener("click", () => {
+            $(".gastly-score-report").fadeOut(1500);
+            $(".gastly-catch-space").css("display", "flex");
+            setTimeout(gastlyGame, 3000);
+            setTimeout(displayGastlyScoreboard, 1600);
+            setTimeout(gastlyTimer, 3000);
+            timer = 5;
+            let timerContentEl = document.querySelector("#timer")
+            timerContentEl.innerHTML = "Timer: " + timer;
+        })
     }
 
 }

@@ -91,9 +91,25 @@ button {
 
 .text-entry-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
-/* .text-entry {
-    width: 15%;
-} */
+#submit-btn {
+    padding: 5px;
+    font-size: 1.5vw;
+    background-color: #fff;
+    margin-left: 2.5px;
+}
+
+.text-entry {
+    padding: 5px; 
+    font-size: 1.5vw;
+    background-color:lavender;
+    margin: 0 2.5px 0 2.5px;
+    color: purple;
+    text-shadow: 3px 3px white;
+    text-align: center;
+    border: 2px black solid;
+    box-shadow: 3px 3px purple;
+}
