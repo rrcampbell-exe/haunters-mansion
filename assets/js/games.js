@@ -57,6 +57,7 @@ function displayGastlyScoreboard () {
 // gastly timer
 timer = 5;
 function gastlyTimer() {
+    console.log('timer', )//timestamp)
     document.getElementById("timer").innerHTML = "Timer: " + timer;
     timer--;
     if (timer <= -1) {
@@ -66,7 +67,8 @@ function gastlyTimer() {
         return;
     }
     else {
-        setTimeout(gastlyTimer, 1000);
+        const id = setTimeout(gastlyTimer, 1000);
+        //timesArr.push(id)
     }
 }
 
