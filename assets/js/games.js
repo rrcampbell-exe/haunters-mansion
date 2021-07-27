@@ -1,14 +1,4 @@
 // DISPLAY FUNCTIONS
-
-var animateObj = {
-    shake: "shake",
-    bounce: "bounce",
-    drop: "drop",
-    explode: "explode",
-    puff: "puff",
-    slide: "slide"
-}
-
 // remove title container
 function titleContainerRemove() {
     $(".title-container").fadeOut(1500)
@@ -25,28 +15,11 @@ function gastlyInstructionsRemove() {
     $(".gastly-instructions, .gastly-instructions.container").fadeOut(1500)
 }
 
-// select random animation
-
-// let animation = function (animateObj) {
-//     var keys = Object.keys(obj);
-//     return obj[keys[ keys.length * Math.random() << 0]];
-// };
-
-// function animateRandom() {
-//     let animation = Math.floor(Math.random * animateObj.length)
-//     console.log(animation)
-// }
-
-// animateRandom()
-
-// INDIVIDUAL GAMES
-
 // GASTLY MINI-GAME
 
 const catchSpaceEl = document.querySelector(".gastly-catch-space")
 const mainPageEl = document.querySelector(".main")
 const gastlyScore = document.querySelector("#gastly-score")
-let timerId
 
 // display header
 function displayGastlyScoreboard () {
@@ -62,21 +35,14 @@ function gastlyTimer() {
     console.log(timer)
     if (timer <= -1) {
         catchSpaceEl.remove(); 
-        stopTimer();
         timer = 5;
-        console.log(timer)
         gastlyScoreFinal();
         return;
     }
     else {
-        timerId = setTimeout(gastlyTimer, 1000);
-        console.log(timerId)
+        setTimeout(gastlyTimer, 1000);
         return;
     }
-}
-
-function stopTimer() {
-    clearTimeout(timer);
 }
 
 // gastly scorekeeping
@@ -88,10 +54,7 @@ var gastlyObj = {
 function gastlyGame() {
 
     if (timer > 0) {
-        $(".gastly-catch-space").css("display", "flex");
-    
-        // source code: https://stackoverflow.com/questions/55668801/how-to-make-an-image-appear-on-a-random-position-onclick
-    
+        $(".gastly-catch-space").css("display", "flex");    
         var gastlyImg = document.querySelector(".gastly")
     
         if (gastlyImg) {
@@ -103,7 +66,7 @@ function gastlyGame() {
             img.style.height = "22vh";
             img.style.width = img.style.height;
             img.addEventListener("click", () => {
-                gastlyObj.score = gastlyObj.score + 1
+                gastlyObj.score++
                 gastlyScore.textContent = gastlyObj.score
                 img.remove();
             });
@@ -129,26 +92,87 @@ function gastlyScoreFinal() {
     $(".gastly-score-report, .gastly-score-container").fadeIn(1500);
     $(".gastly-score-report, .gastly-score-container").css("display", "flex");
     $(".gastly-score-final").text(gastlyObj.score);
+    finalGastlyScore = gastlyObj.score
 
     if (gastlyObj.score >= 1) {
         $(".gastly-score-report-text-fail, .gastly-restart-btn").css("display", "none");
+        let submitBtnEl = document.querySelector("#submit-btn");
+        submitBtnEl.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            let playerInitials = document.querySelector("#player-initials").value
+
+            let playerScore = finalGastlyScore
+            let scoreObj = {
+                player: playerInitials,
+                score: playerScore
+            }
+
+            let scoresArr = []
+            if (localStorage.getItem("scoreTable")) {
+                scoresArr = JSON.parse(localStorage.getItem("scoreTable"))
+            }
+            scoresArr.push(scoreObj)
+        
+            localStorage.setItem("scoreTable", JSON.stringify(scoresArr));
+            localStorage.setItem("playerInitials", playerInitials);
+            localStorage.setItem("score", playerScore);
+        
+            // TODO: fade content from screen
+        
+            displayScores();
+            
+        })
+        return finalGastlyScore;
     } else {
         $(".gastly-score-report-text-success").css("display", "none")
         $(".text-entry-container").css("display", "none")
         let gastlyBtnEl = document.querySelector(".gastly-restart-btn")
         gastlyBtnEl.addEventListener("click", () => {
             window.location.reload();
-
-            // mainPageEl.append(catchSpaceEl)
-            // $(".gastly").remove();
-            // $(".gastly-score-report").fadeOut(1500);
-            // // $(".gastly-catch-space").css("display", "flex");
-            // setTimeout(gastlyGame, 3000);
-            // setTimeout(displayGastlyScoreboard, 1500);
-            // setTimeout(gastlyTimer, 1000)
-            // let timerContentEl = document.querySelector("#timer")
-            // timerContentEl.innerHTML = "Timer: " + timer;
         })
     }
 
+}
+
+function displayScores() {
+
+    // TODO: display high scores on screen with fades in and out
+
+    let scoresList = document.querySelector("#scores-list")
+    let scoreScrnObj = JSON.parse(localStorage.getItem("scoreTable"))
+    scoreScrnObj.sort((a, b) => b.score - a.score);
+
+    for (i = 0; i < 3; i++) {
+        let scoreItem = document.createElement("li");
+        if (scoreScrnObj[i]){
+            scoreItem.textContent = (scoreScrnObj[i].player + " " + scoreScrnObj[i].score);
+        } else {
+            scoreItem.textContent = ""
+        }
+        scoresList.append(scoreItem);
+    }
+}
+
+function saveScore(finalGastlyScore) {
+
+    let playerInitials = initialsInput
+    let playerScore = finalGastlyScore
+    let scoreObj = {
+        player: playerInitials,
+        score: playerScore
+    }
+    
+    if (localStorage.getItem("scoreTable")) {
+        scoresArr = JSON.parse(localStorage.getItem("scoreTable"))
+    }
+    scoresArr.push(scoreObj)
+
+    localStorage.setItem("scoreTable", JSON.stringify(scoresArr));
+    localStorage.setItem("playerInitials", playerInitials);
+    localStorage.setItem("score", playerScore);
+
+    // TODO: remove content from screen
+
+    displayScores();
 }
