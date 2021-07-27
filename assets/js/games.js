@@ -25,7 +25,6 @@ function gastlyInstructionsRemove() {
     $(".gastly-instructions, .gastly-instructions.container").fadeOut(1500)
 }
 
-
 // select random animation
 
 // let animation = function (animateObj) {
@@ -47,6 +46,7 @@ function gastlyInstructionsRemove() {
 const catchSpaceEl = document.querySelector(".gastly-catch-space")
 const mainPageEl = document.querySelector(".main")
 const gastlyScore = document.querySelector("#gastly-score")
+let timerId
 
 // display header
 function displayGastlyScoreboard () {
@@ -57,19 +57,26 @@ function displayGastlyScoreboard () {
 // gastly timer
 timer = 5;
 function gastlyTimer() {
-    console.log('timer', )//timestamp)
     document.getElementById("timer").innerHTML = "Timer: " + timer;
     timer--;
+    console.log(timer)
     if (timer <= -1) {
         catchSpaceEl.remove(); 
+        stopTimer();
         timer = 5;
+        console.log(timer)
         gastlyScoreFinal();
         return;
     }
     else {
-        const id = setTimeout(gastlyTimer, 1000);
-        //timesArr.push(id)
+        timerId = setTimeout(gastlyTimer, 1000);
+        console.log(timerId)
+        return;
     }
+}
+
+function stopTimer() {
+    clearTimeout(timer);
 }
 
 // gastly scorekeeping
@@ -130,16 +137,17 @@ function gastlyScoreFinal() {
         $(".text-entry-container").css("display", "none")
         let gastlyBtnEl = document.querySelector(".gastly-restart-btn")
         gastlyBtnEl.addEventListener("click", () => {
-            mainPageEl.append(catchSpaceEl)
-            $(".gastly").remove();
-            $(".gastly-score-report").fadeOut(1500);
-            // $(".gastly-catch-space").css("display", "flex");
-            setTimeout(gastlyGame, 3000);
-            setTimeout(displayGastlyScoreboard, 1600);
-            setTimeout(gastlyTimer, 3000);
-            let timerContentEl = document.querySelector("#timer")
-            timer = 5
-            timerContentEl.innerHTML = "Timer: " + timer;
+            window.location.reload();
+
+            // mainPageEl.append(catchSpaceEl)
+            // $(".gastly").remove();
+            // $(".gastly-score-report").fadeOut(1500);
+            // // $(".gastly-catch-space").css("display", "flex");
+            // setTimeout(gastlyGame, 3000);
+            // setTimeout(displayGastlyScoreboard, 1500);
+            // setTimeout(gastlyTimer, 1000)
+            // let timerContentEl = document.querySelector("#timer")
+            // timerContentEl.innerHTML = "Timer: " + timer;
         })
     }
 
