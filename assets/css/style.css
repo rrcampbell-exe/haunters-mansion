@@ -65,15 +65,16 @@ button {
 
 /* GASTLY GAME STYLES */
 
-.gastly-instructions-container, .gastly-score-container {
+.gastly-instructions-container, .gastly-score-container, .high-scores-container {
     position: absolute;
     top: 24vh;
     left: 3.5vw;
     right: 3.5vw;
     display: none;
+    justify-content: center;
 }
 
-.gastly-instruction-text, .gastly-score-report-text-success, .gastly-score-report-text-fail {
+.gastly-instruction-text, .gastly-score-report-text-success, .gastly-score-report-text-fail, .high-score-scoreboard {
     margin-bottom: 10px;
     padding: 5px;
     font-size: 1.5vw;
@@ -111,4 +112,23 @@ button {
     text-align: center;
     border: 2px black solid;
     box-shadow: 3px 3px purple;
+}
+
+.final-score-report {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.high-score-scoreboard {
+    text-align: center; 
+    display: inherit;
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+#scores-list {
+    list-style-type: none;
+    padding: 0;
+    padding-top: 3%;
 }
