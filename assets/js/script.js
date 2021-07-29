@@ -32,11 +32,8 @@ function startButtonShake() {
 // EVENT LISTENERS
 let startBtnEl = document.querySelector("#start-btn")
 startBtnEl.addEventListener("click", () => {
-    // gastlyGame();
     titleContainerRemove();
     setTimeout(gastlyInstructionsDisplay, 1600);
-    // displayGastlyScoreboard();
-    // gastlyTimer();
 });
 
 let gastlyBtnEl = document.querySelector(".gastly-start-btn")
