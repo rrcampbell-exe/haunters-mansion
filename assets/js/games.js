@@ -15,6 +15,22 @@ function gastlyInstructionsRemove() {
     $(".gastly-instructions, .gastly-instructions.container").fadeOut(1500)
 }
 
+// remove gastly scoreboard
+function gastlyScoreboardRemove() {
+    $(".gastly-score-report").fadeOut(1500);
+}
+
+// display high scores
+function scoreboardDisplay() {
+    $(".high-scores-container").fadeIn(1500)
+    $(".high-scores-container").css("display", "flex");
+}
+
+function displayPlayAgainBtn() {
+    $(".game-restart-button").fadeIn(1500)
+    $(".game-restart-button").css("display", "flex");
+}
+
 // GASTLY MINI-GAME
 
 const catchSpaceEl = document.querySelector(".gastly-catch-space")
@@ -117,11 +133,12 @@ function gastlyScoreFinal() {
             localStorage.setItem("scoreTable", JSON.stringify(scoresArr));
             localStorage.setItem("playerInitials", playerInitials);
             localStorage.setItem("score", playerScore);
-        
-            // TODO: fade content from screen
-        
-            displayScores();
+                
+            gastlyScoreboardRemove() 
             
+            setTimeout(displayScores, 1600)
+            setTimeout(displayPlayAgainBtn, 1600)
+
         })
         return finalGastlyScore;
     } else {
@@ -137,8 +154,6 @@ function gastlyScoreFinal() {
 
 function displayScores() {
 
-    // TODO: display high scores on screen with fades in and out
-
     let scoresList = document.querySelector("#scores-list")
     let scoreScrnObj = JSON.parse(localStorage.getItem("scoreTable"))
     scoreScrnObj.sort((a, b) => b.score - a.score);
@@ -152,27 +167,11 @@ function displayScores() {
         }
         scoresList.append(scoreItem);
     }
-}
 
-function saveScore(finalGastlyScore) {
+    scoreboardDisplay();
 
-    let playerInitials = initialsInput
-    let playerScore = finalGastlyScore
-    let scoreObj = {
-        player: playerInitials,
-        score: playerScore
-    }
-    
-    if (localStorage.getItem("scoreTable")) {
-        scoresArr = JSON.parse(localStorage.getItem("scoreTable"))
-    }
-    scoresArr.push(scoreObj)
-
-    localStorage.setItem("scoreTable", JSON.stringify(scoresArr));
-    localStorage.setItem("playerInitials", playerInitials);
-    localStorage.setItem("score", playerScore);
-
-    // TODO: remove content from screen
-
-    displayScores();
+    let gameBtnEl = document.querySelector(".game-restart-btn")
+    gameBtnEl.addEventListener("click", () => {
+        window.location.reload();
+    })
 }
