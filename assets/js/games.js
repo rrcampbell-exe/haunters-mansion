@@ -44,14 +44,14 @@ function displayGastlyScoreboard () {
 }
 
 // gastly timer
-timer = 5;
+timer = 30;
 function gastlyTimer() {
     document.getElementById("timer").innerHTML = "Timer: " + timer;
     timer--;
     console.log(timer)
     if (timer <= -1) {
         catchSpaceEl.remove(); 
-        timer = 5;
+        timer = 30;
         gastlyScoreFinal();
         return;
     }
@@ -110,7 +110,7 @@ function gastlyScoreFinal() {
     $(".gastly-score-final").text(gastlyObj.score);
     finalGastlyScore = gastlyObj.score
 
-    if (gastlyObj.score >= 1) {
+    if (gastlyObj.score >= 12) {
         $(".gastly-score-report-text-fail, .gastly-restart-btn").css("display", "none");
         let submitBtnEl = document.querySelector("#submit-btn");
         submitBtnEl.addEventListener("click", function(event) {
