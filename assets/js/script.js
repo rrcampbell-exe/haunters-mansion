@@ -25,7 +25,7 @@ function titleFade() {
 }
 
 function startButtonShake() {
-    $("#start-btn").effect("shake", {times: 1, distance:3}, 1000)
+    $("#start-btn").effect("shake", {times: 3, distance:3}, 3000)
     setTimeout(startButtonShake, 3000)
 }
 
