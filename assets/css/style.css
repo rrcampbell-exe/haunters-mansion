@@ -132,3 +132,67 @@ button {
     padding: 0;
     padding-top: 3%;
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 768px) {
+    #haunter-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20vh;
+    }
+    
+    h1 {
+        font-size: calc(1.2rem + .9vw)
+    }
+
+    h2 {
+        font-size: calc(1rem + .9vw)
+    }
+
+    .gastly-instructions, .gastly-score-report {
+        margin-left: -2%;
+    }
+
+    .title-display {
+        margin-left: 0;
+    }
+
+    #gastly-header {
+        margin-left: 1.5%;
+    }
+
+    #timer {
+        margin-left: 0;
+        margin-right: 5%;
+    }
+
+    p, button, #submit-button, .text-entry {
+        font-size: calc(.5rem + .6vw);
+    }
+}
+
+@media screen and (max-width: 425px) {
+    #haunter-container {
+        margin-top: 10vh;
+    }
+    
+    #haunter {
+        width: 80%;
+    }
+
+    .title-display {
+        margin-top: -6%;
+    }
+    
+    h2 {
+        font-size: calc(.5rem + .9vw)
+    }
+
+    #timer {
+        margin-left: 0;
+        margin-right: 3%;
+    }
+}
+
+
