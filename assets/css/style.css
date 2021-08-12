@@ -87,6 +87,37 @@ button {
     display: inline-block;
 }
 
+/* HAUNTER MINI-GAME ONE */
+
+.haunter-grid-container {
+    display: none;
+    justify-content: center;
+}
+
+#sortable { 
+    list-style-type: none; 
+    margin-top: 50%;
+    padding: 0; 
+    width: 450px; 
+}
+
+#sortable li { 
+    margin: 3px 3px 0 0; 
+    padding: 1px; 
+    float: left; 
+    width: 100px; 
+    height: 90px; 
+    font-size: 4em; 
+    text-align: center; 
+    color: purple;
+    background-color: lavender;
+}
+
+.poke-grid-image {
+    display: flex;
+    margin: auto;
+}
+
 /* END GAME STYLES */
 
 .text-entry-container {
