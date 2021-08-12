@@ -1,3 +1,15 @@
+// DISPLAY FUNCTIONS
+// remove instructions container
+function haunterInstructionsRemove() {
+    $(".gastly-score-report").fadeOut(1500);
+}
+
+// display haunter game container
+function haunterGameDisplay() {
+    $(".haunter-grid-container").fadeIn(1500);
+    $(".haunter-grid-container").css("display", "flex");
+}
+
 var gameImgArray = []
 var reorderImgArray = []
 
@@ -10,7 +22,7 @@ $(function() {
   } );
 
 function assignPokeImages() {
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 9; i++) {
         let randomPoke = Math.ceil(Math.random() * 151)
         let pokeApi = `https://pokeapi.co/api/v2/pokemon/${randomPoke}/`
         fetch(pokeApi)
@@ -49,7 +61,7 @@ function shufflePokeImages(array) {
 }
 
 function displayShuffleImg() {
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 9; i++) {
         document.getElementById(parseInt(i)).src = reorderImgArray[i]
     }
 }
@@ -67,8 +79,18 @@ function compareImgArrays () {
 
 
 function haunterGame() {
-    $(".haunter-grid-container").css("display", "flex")
+    haunterInstructionsRemove();
+    setTimeout(haunterGameDisplay, 1500);
     
-// get 12 randomly selected pokemon images, arrange them in order
-    assignPokeImages();
+// get 9 randomly selected pokemon images, arrange them in order
+    setTimeout(assignPokeImages, 1500)
 }  
+
+let haunterBtnEl = document.querySelector(".haunter-start-btn")
+haunterBtnEl.addEventListener("click", () => {
+    haunterGame();
+    // gastlyInstructionsRemove();
+    // setTimeout(gastlyGame, 3000);
+    // setTimeout(displayGastlyScoreboard, 1600);
+    // setTimeout(gastlyTimer, 3000);
+})
