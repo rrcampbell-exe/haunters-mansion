@@ -69,9 +69,6 @@
                 <li class="ui-state-default"><img id="6" class="poke-grid-image"></img></li>
                 <li class="ui-state-default"><img id="7" class="poke-grid-image"></img></li>
                 <li class="ui-state-default"><img id="8" class="poke-grid-image"></img></li>
-                <li class="ui-state-default"><img id="9" class="poke-grid-image"></img></li>
-                <li class="ui-state-default"><img id="10" class="poke-grid-image"></img></li>
-                <li class="ui-state-default"><img id="11" class="poke-grid-image"></img></li>
               </ul>
             </div>
           </div>
@@ -81,21 +78,47 @@
     <div class="container gastly-score-container">
       <div class="row">
         <div class="col-12 gastly-score-report">
-          <h1>Game Over!</h1>
+          <h1>Time's Up!</h1>
 
           <!-- DISPLAY IF USER WINS GASTLY MINI-GAME -->
           <div class="gastly-score-report-text-success">
             <p>Congratulations! You caught <span class="gastly-score-final"></span> Gastly!</p>
-            <p>You have successfully escaped Haunter's Mansion. Enter your name below to save your score.</p>
+            <p>You advance from one room of Haunter's Mansion to the next, only to find Haunter awaits—and with a new challenge!</p>
+            <p>Haunter will soon display nine images before you. You'll have five seconds to study their order and commit them to memory before their order is scrambled.</p>
+            <p>Then, drag the images back to their original positions and click submit... before time runs out!</p>
+          </div>
+          <button class="haunter-start-btn">Start game!</button>
+
+          <!-- DISPLAY IF USER LOSES GASTLY MINI-GAME -->
+          <div class="gastly-score-report-text-fail">
+            <p>Oh no! You only caught <span class="gastly-score-final"></span> Gastly.</p>
+            <p>Darkness descends. Two eyes, white, appear in the darkness before you.</p>
+            <p>You find yourself getting sleepy, very sleepy...</p>
+          </div>
+          <button class="gastly-restart-btn">Play again!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DISPLAY SCORE AFTER ALL MINI-GAMES ARE COMPLETE -->
+    <div class="container final-score-container">
+      <div class="row">
+        <div class="col-12 final-score-report">
+          <h1>Game Over!</h1>
+
+          <!-- DISPLAY IF USER WINS FINAL MINI-GAME -->
+          <div class="final-score-report-text-success">
+            <p>Congratulations! Your final score is [final score].</p>
+            <p>You have successfully escaped Haunter's Mansion. Enter your name below to see if you've made the high score list.</p>
           </div>
           <form class="text-entry-container">
             <input type="text" id="player-initials" name="name" class="text-entry" placeholder="Name" required minlength="3" maxlength="10" size="10"/>
             <button id="submit-btn">Submit</button>
           </form>
 
-          <!-- DISPLAY IF USER LOSES GASTLY MINI-GAME -->
-          <div class="gastly-score-report-text-fail">
-            <p>Oh no! You only caught <span class="gastly-score-final"></span> Gastly.</p>
+          <!-- DISPLAY IF USER LOSES FINAL MINI-GAME -->
+          <div class="final-score-report-text-fail">
+            <p>Oh no! You didn't solve Haunter's Memory Scramble in time.</p>
             <p>Darkness descends. Two eyes, white, appear in the darkness before you.</p>
             <p>You find yourself getting sleepy, very sleepy...</p>
           </div>
