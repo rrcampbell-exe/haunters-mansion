@@ -79,7 +79,7 @@ function gastlyGame() {
             var img = document.createElement("img");
             img.className = "gastly"
             img.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png";
-            img.style.height = "22vh";
+            img.style.height = "19vh";
             img.style.width = img.style.height;
             img.addEventListener("click", () => {
                 gastlyObj.score++
