@@ -71,5 +71,4 @@ function haunterGame() {
     
 // get 12 randomly selected pokemon images, arrange them in order
     assignPokeImages();
-
 }  
