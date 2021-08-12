@@ -44,7 +44,7 @@ function displayGastlyScoreboard () {
 }
 
 // gastly timer
-timer = 30;
+timer = 1;
 function gastlyTimer() {
     document.getElementById("timer").innerHTML = "Timer: " + timer;
     timer--;
@@ -63,7 +63,7 @@ function gastlyTimer() {
 
 // gastly scorekeeping
 var gastlyObj = {
-    score: 0
+    score: 12
 }
 
 // gastly game function
